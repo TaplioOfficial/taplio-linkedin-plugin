@@ -1,0 +1,13 @@
+{
+  "name": "taplio",
+  "description": "17 Claude Skills for LinkedIn (post writing, hooks, carousels, niche and pillar strategy, content calendars, analytics) bundled with the Taplio MCP, so every skill runs on your real LinkedIn voice, audience, and numbers.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Taplio",
+    "url": "https://taplio.com"
+  },
+  "homepage": "https://taplio.com/claude-skills-for-linkedin",
+  "repository": "https://github.com/TaplioOfficial/taplio-linkedin-plugin",
+  "license": "MIT",
+  "keywords": ["linkedin", "taplio", "content-creation", "personal-branding", "social-media", "mcp"]
+}
