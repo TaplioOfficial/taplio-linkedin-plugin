@@ -13,7 +13,7 @@ A Claude Code plugin that bundles **26 Claude Skills for LinkedIn** together wit
 - **Engagement**: comment opportunity finder, smart comment writer, comment reply manager, warm lead finder, engagement watchlist builder, daily engagement routine, engagement tracker
 - **Networking**: connection request hook, DM opener
 
-**Taplio MCP** (`https://mcp.taplio.com`, bundled via `.mcp.json`): lets the skills draft, schedule, and publish posts, browse your posts and drafts, research proven inspiration, read your analytics, find the posts and comments worth engaging with, and draft and schedule comments and replies under your name. Publishing a post and committing a comment are always gated behind your explicit confirmation.
+**Taplio MCP** (`https://mcp.taplio.com`, bundled via `.mcp.json`): lets the skills draft, schedule, and publish posts, browse your posts and drafts, research proven inspiration, read your analytics, find the posts and comments worth engaging with, draft and schedule comments and replies under your name, like posts, and queue connection requests. Publishing a post, committing a comment, and sending a connection request are always gated behind your explicit confirmation.
 
 ## Install
 
@@ -30,7 +30,9 @@ Or load it locally for testing:
 claude --plugin-dir ./taplio-linkedin-plugin
 ```
 
-On first use of a skill, the bundled Taplio MCP asks you to connect your Taplio account (sign up at https://taplio.com). Skills are invoked as `/taplio:<skill-name>`, for example `/taplio:linkedin-post-writer`.
+On first use of a skill, the bundled Taplio MCP asks you to connect your Taplio account (no account yet ? [start a free trial](https://app.taplio.com/signin?utm_source=github&utm_medium=repo&utm_campaign=linkedin-skills)). Skills are invoked as `/taplio:<skill-name>`, for example `/taplio:linkedin-post-writer`.
+
+**Using Claude on the web, desktop, or mobile ?** Taplio is an official Claude connector : install it from [claude.ai/customize/connectors/id/taplio](https://claude.ai/customize/connectors/id/taplio) (or Customize > Connectors > Discover, search "Taplio", Connect to Claude, sign in, Allow access), then add the skills from the [skills repo](https://github.com/TaplioOfficial/taplio-linkedin-claude-skills). In ChatGPT, Cursor, or Manus, add a custom connector with the URL `https://mcp.taplio.com`.
 
 ## Links
 
