@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "taplio": {
-      "type": "http",
-      "url": "https://mcp.taplio.com"
-    }
-  }
-}
