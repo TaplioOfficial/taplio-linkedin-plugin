@@ -42,6 +42,12 @@ To try it locally in Claude Code:
 claude --plugin-dir ./taplio-linkedin-plugin
 ```
 
+## Cursor
+
+The same repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). In Cursor, the plugin brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`), so there is nothing to connect separately: install it, then sign in to Taplio in the browser on the first tool call.
+
+To try it locally, copy this folder to `~/.cursor/plugins/local/taplio` and restart Cursor. If you already added a `taplio` server in `~/.cursor/mcp.json`, remove it to avoid seeing the tools twice.
+
 ## Links
 
 - Skills source: https://github.com/TaplioOfficial/taplio-linkedin-claude-skills
