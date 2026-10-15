@@ -48,6 +48,10 @@ The same repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). In C
 
 To try it locally, copy this folder to `~/.cursor/plugins/local/taplio` and restart Cursor. If you already added a `taplio` server in `~/.cursor/mcp.json`, remove it to avoid seeing the tools twice.
 
+## Grok Build
+
+The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
+
 ## Links
 
 - Skills source: https://github.com/TaplioOfficial/taplio-linkedin-claude-skills
