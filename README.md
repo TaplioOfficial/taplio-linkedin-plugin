@@ -52,6 +52,30 @@ To try it locally, copy this folder to `~/.cursor/plugins/local/taplio` and rest
 
 The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
 
+## GitHub Copilot
+
+The repository is also a GitHub Copilot plugin (`.github/plugin/plugin.json`), for Copilot CLI and VS Code. As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
+
+```bash
+copilot plugin install TaplioOfficial/taplio-linkedin-plugin
+```
+
+## Gemini CLI
+
+The repository is also a Gemini CLI extension (`gemini-extension.json`). It brings the 26 skills and the Taplio MCP server; Gemini CLI discovers the OAuth sign-in on the first tool call.
+
+```bash
+gemini extensions install https://github.com/TaplioOfficial/taplio-linkedin-plugin
+```
+
+## Other agents (skills only)
+
+To add the 26 skills to any agent supported by [skills.sh](https://skills.sh), then connect the Taplio MCP server (`https://mcp.taplio.com/`) in that agent:
+
+```bash
+npx skills add TaplioOfficial/taplio-linkedin-plugin
+```
+
 ## Links
 
 - Skills source: https://github.com/TaplioOfficial/taplio-linkedin-claude-skills

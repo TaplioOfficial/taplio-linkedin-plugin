@@ -1,7 +1,7 @@
 {
   "name": "taplio",
   "description": "Run your LinkedIn from Cursor: 26 skills plus the Taplio MCP server to write, schedule and analyze LinkedIn posts, find inspiration, comment, like and connect through your Taplio account.",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": {
     "name": "Taplio"
   },
