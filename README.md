@@ -36,7 +36,14 @@ Nothing reaches LinkedIn without your say-so. Publishing a post, committing a co
 
 Skills are invoked as `/taplio:<skill-name>`, for example `/taplio:linkedin-post-writer`, or simply by asking ("write a LinkedIn post about...", "who in my comments is worth talking to?").
 
-To try it locally in Claude Code:
+To install it in Claude Code from this repository (it is also a plugin marketplace, `.claude-plugin/marketplace.json`):
+
+```bash
+/plugin marketplace add TaplioOfficial/taplio-linkedin-plugin
+/plugin install taplio@taplio
+```
+
+To try a local copy:
 
 ```bash
 claude --plugin-dir ./taplio-linkedin-plugin
@@ -67,6 +74,15 @@ The repository is also a Gemini CLI extension (`gemini-extension.json`). It brin
 ```bash
 gemini extensions install https://github.com/TaplioOfficial/taplio-linkedin-plugin
 ```
+
+## ChatGPT (Business, Enterprise and Edu workspaces)
+
+Until Taplio is in the public ChatGPT plugin directory, a workspace admin or owner can add it on ChatGPT web:
+
+1. **The Taplio MCP server:** in Plugins, select **+**, then **Add custom MCP server**. Enter `https://mcp.taplio.com/` as the endpoint and OAuth as the authentication, accept the risk warning, select **Create as a plugin**, and sign in to Taplio when prompted. Then publish it for the workspace (Admin Console > Plugins).
+2. **The 26 skills (optional):** in Admin Console > Plugins, select **Add** > **Import marketplace** and enter `https://github.com/TaplioOfficial/taplio-linkedin-plugin`. ChatGPT reads `.claude-plugin/marketplace.json` and syncs the skills daily.
+
+Each member then signs in to their own Taplio account on the first tool call.
 
 ## Other agents (skills only)
 
