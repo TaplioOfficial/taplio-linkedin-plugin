@@ -1,0 +1,20 @@
+{
+  "name": "taplio",
+  "owner": {
+    "name": "Taplio",
+    "url": "https://taplio.com"
+  },
+  "metadata": {
+    "description": "Taplio for LinkedIn: 26 skills to write, plan, engage and grow on LinkedIn, running on the Taplio MCP server."
+  },
+  "plugins": [
+    {
+      "name": "taplio",
+      "source": "./",
+      "description": "26 skills for LinkedIn (post writing, hooks, carousels, strategy, analytics, comments and replies, warm leads, connection requests), running on the Taplio MCP server.",
+      "version": "2.1.0",
+      "homepage": "https://taplio.com/claude-skills-for-linkedin",
+      "category": "productivity"
+    }
+  ]
+}
