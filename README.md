@@ -61,7 +61,7 @@ The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the
 
 ## GitHub Copilot
 
-The repository is also a GitHub Copilot plugin (`.github/plugin/plugin.json`), for Copilot CLI and VS Code. As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
+The repository is also an [Agent Plugins v1.0.0](https://agent-plugins.org) plugin (root `plugin.json`, skills in `skills/`, MCP server in `mcp.json`), which GitHub Copilot CLI and VS Code load natively. As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
 
 ```bash
 copilot plugin install TaplioOfficial/taplio-linkedin-plugin
