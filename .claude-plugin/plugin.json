@@ -1,7 +1,7 @@
 {
   "name": "taplio",
   "description": "26 Claude Skills for LinkedIn (post writing, hooks, carousels, niche and pillar strategy, content calendars, analytics, comment opportunities, smart comments and replies, likes, warm leads, engagement routine and tracking, connection requests, DM openers). Requires the official Taplio connector, so every skill runs on your real LinkedIn voice, audience, threads, and numbers.",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": {
     "name": "Taplio",
     "url": "https://taplio.com"
