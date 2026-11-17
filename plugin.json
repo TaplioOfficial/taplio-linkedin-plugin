@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "taplio",
-  "description": "Run your LinkedIn from GitHub Copilot: 26 skills plus the Taplio MCP server to write, schedule and analyze LinkedIn posts, find inspiration, comment, like and connect through your Taplio account.",
+  "description": "Run your LinkedIn from your AI agent: 26 skills plus the Taplio MCP server to write, schedule and analyze LinkedIn posts, find inspiration, comment, like and connect through your Taplio account.",
   "version": "2.1.1",
   "author": {
     "name": "Taplio",
