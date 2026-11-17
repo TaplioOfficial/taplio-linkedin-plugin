@@ -57,7 +57,16 @@ To try it locally, copy this folder to `~/.cursor/plugins/local/taplio` and rest
 
 ## Grok Build
 
-The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
+The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). It brings the 26 skills, and one more command adds the Taplio MCP server (`https://mcp.taplio.com/`).
+
+Install it straight from this repository, then add the Taplio MCP server:
+
+```bash
+grok plugin install TaplioOfficial/taplio-linkedin-plugin --trust
+grok mcp add taplio https://mcp.taplio.com/
+```
+
+Then open `/mcps` in Grok, select `taplio` and press `i` to sign in to Taplio in the browser.
 
 ## GitHub Copilot
 
