@@ -1,0 +1,83 @@
+{
+  "name": "taplio",
+  "version": "1.0.0",
+  "description": "Write, schedule and analyze LinkedIn posts, find posts worth commenting on, and draft comments and replies through your Taplio account.",
+  "interface": {
+    "displayName": "Taplio",
+    "shortDescription": "Write and plan LinkedIn posts",
+    "longDescription": "Taplio connects ChatGPT to your LinkedIn through your Taplio account.\n\nAsk it to research what performs in your niche, draft posts in your voice, attach images or video, schedule them at the right time, and explain your analytics in plain language. It can also find posts worth commenting on, draft comments and replies, like posts and send connection requests.\n\nNothing reaches LinkedIn until you ask for it: drafts stay drafts, and every comment, like or connection request goes out only after you approve it.\n\nRequires a Taplio account with LinkedIn connected.",
+    "developerName": "lempire",
+    "category": "Productivity",
+    "websiteURL": "https://taplio.com",
+    "supportURL": "https://intercom.help/taplio",
+    "privacyPolicyURL": "https://taplio.com/our-privacy-policy",
+    "termsOfServiceURL": "https://taplio.com/terms-of-service",
+    "defaultPrompt": [
+      "Turn my newsletter into a LinkedIn post and queue it for tomorrow morning.",
+      "How did my LinkedIn posts do this month, and what should I do next?",
+      "Find five posts in my niche worth commenting on and draft a comment for each."
+    ],
+    "brandColor": "#3556E6",
+    "brandColorDark": "#3556E6",
+    "logo": "./assets/icon.png",
+    "logoDark": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png",
+    "composerIconDark": "./assets/icon.png"
+  },
+  "review": {
+    "test_cases": {
+      "positive": [
+        {
+          "description": "Read the connected account's profile and today's LinkedIn numbers.",
+          "prompt": "What are my LinkedIn stats today?",
+          "tools_triggered": "get_me",
+          "expected_behavior": "Calls get_me and answers with the account's name and today's followers, connections and profile views. Nothing is written."
+        },
+        {
+          "description": "Write a post in the user's voice and save it as a draft, without publishing.",
+          "prompt": "Draft a LinkedIn post about remote work in my voice and save it as a draft.",
+          "tools_triggered": "get_me, create_draft",
+          "expected_behavior": "Reads the user's settings with get_me, writes the post, saves it with create_draft and returns the draft. The post is not scheduled or published."
+        },
+        {
+          "description": "Schedule an existing draft for a given time.",
+          "prompt": "Schedule my latest draft for tomorrow at 9am.",
+          "tools_triggered": "list_drafts, schedule_draft",
+          "expected_behavior": "Finds the latest draft with list_drafts, confirms the time with the user if needed, then schedules it with schedule_draft and states the scheduled date and time."
+        },
+        {
+          "description": "Find high-performing LinkedIn posts on a topic for inspiration.",
+          "prompt": "Find three high-performing LinkedIn posts about remote work for inspiration.",
+          "tools_triggered": "search_inspiration",
+          "expected_behavior": "Calls search_inspiration and returns three posts on the topic with their author, a short excerpt, their engagement and a link."
+        },
+        {
+          "description": "Rank the user's recent posts by performance.",
+          "prompt": "Which of my posts from the last 7 days performed best?",
+          "tools_triggered": "list_posts, get_post_analytics",
+          "expected_behavior": "Lists the posts published in the last 7 days, reads their analytics and ranks them by engagement, naming the best one and what made it work."
+        }
+      ],
+      "negative": [
+        {
+          "description": "A request for another social network: Taplio only covers LinkedIn.",
+          "prompt": "Post this on my Instagram.",
+          "expected_behavior": "Taplio is not called. The assistant says Taplio only works with LinkedIn."
+        },
+        {
+          "description": "Deleting published posts is outside what Taplio can do.",
+          "prompt": "Delete all my published LinkedIn posts.",
+          "expected_behavior": "No tool deletes anything. The assistant explains that Taplio cannot delete published LinkedIn posts; only drafts can be deleted, one at a time and on request."
+        },
+        {
+          "description": "Direct messages are not supported.",
+          "prompt": "Send a direct message to John on LinkedIn.",
+          "expected_behavior": "No action is taken. The assistant explains that Taplio does not send LinkedIn direct messages."
+        }
+      ]
+    }
+  },
+  "publication": {
+    "release_notes": "First release in ChatGPT: write, schedule and analyze LinkedIn posts, search inspiration, and draft comments and replies through your Taplio account, with 26 LinkedIn skills."
+  }
+}
