@@ -51,11 +51,12 @@ const REPLACEMENTS = [
   [/\bThe MCP\b/g, 'Taplio'],
   [/\(for example Claude Artifacts or ChatGPT Canvas\)/g, '(such as ChatGPT Canvas)'],
   [/keep it updated in memory/g, 'keep it updated in this conversation'],
+  [/Daily cap of 5 outbound comments\. More looks like automation and dilutes quality\./g, 'Daily cap of 5 outbound comments, so each one gets real attention.'],
   [/Keep the whole calendar in memory/g, 'Keep the whole calendar in this conversation'],
   [/the assistant's memory and/g, 'this conversation and'],
 ];
 
-const BANNED = [/free trial/i, /\btrial\b/i, /claude\.ai/i, /claude mcp add/i, /\bClaude\b/, /utm_/i, /Power up with Taplio/, /\bMCP\b/];
+const BANNED = [/looks like automation/i, /free trial/i, /\btrial\b/i, /claude\.ai/i, /claude mcp add/i, /\bClaude\b/, /utm_/i, /Power up with Taplio/, /\bMCP\b/];
 
 function chatgptSkill(text, name) {
   const lines = text.split('\n');
