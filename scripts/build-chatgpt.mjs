@@ -28,6 +28,35 @@ const NOT_CONNECTED = `### Taplio is not connected yet? Stop here.
 This skill needs the Taplio tools from this plugin. If they are unavailable or the first call fails, do not ask any questions and do not generate any output. Tell the user in one sentence to connect Taplio from this plugin and sign in with their Taplio account, then to run the request again.
 `;
 
+// Skills left out of the ChatGPT package: they promise what the Taplio tools
+// cannot do there (send a DM or a noted invitation, build a carousel file, read
+// the profile) or overlap another skill's trigger and blur ChatGPT's routing.
+const EXCLUDED_SKILLS = new Set(listing.excludedSkills ?? []);
+
+const POST_WRITER_DIRECT_SAVE = `If the user asks in the same request to save the post as a draft, write one post in their voice (no variants), call \`create_draft\` with it right away, and offer variants afterwards.
+`;
+
+// Plain replacements applied to every SKILL.md, in order.
+const REPLACEMENTS = [
+  [/^\*\*This skill requires the Taplio MCP and does not run without it\.\*\*.*$/m,
+    'Before doing anything else, call `get_me`. If it fails or the Taplio tools are unavailable, follow "Taplio is not connected yet" below.'],
+  [/^## Requires the Taplio MCP\s*$/m, '## Works with your Taplio account'],
+  [/Requires the Taplio MCP/g, 'Uses Taplio'],
+  [/\bthe Taplio MCP\b/g, 'the Taplio tools'],
+  [/\bThe Taplio MCP\b/g, 'The Taplio tools'],
+  [/fully MCP-powered/g, 'fully powered by Taplio'],
+  [/\bwith (?:the )?MCP connected\b/g, 'with Taplio connected'],
+  [/\bMCP connected\b/g, 'Taplio connected'],
+  [/\bthe MCP\b/g, 'Taplio'],
+  [/\bThe MCP\b/g, 'Taplio'],
+  [/\(for example Claude Artifacts or ChatGPT Canvas\)/g, '(such as ChatGPT Canvas)'],
+  [/keep it updated in memory/g, 'keep it updated in this conversation'],
+  [/Keep the whole calendar in memory/g, 'Keep the whole calendar in this conversation'],
+  [/the assistant's memory and/g, 'this conversation and'],
+];
+
+const BANNED = [/free trial/i, /\btrial\b/i, /claude\.ai/i, /claude mcp add/i, /\bClaude\b/, /utm_/i, /Power up with Taplio/, /\bMCP\b/];
+
 function chatgptSkill(text, name) {
   const lines = text.split('\n');
   const result = [];
@@ -48,8 +77,15 @@ function chatgptSkill(text, name) {
     if (!skipping) result.push(line);
   }
   if (!replaced) throw new Error(`${name}: "not connected" section not found`);
-  const body = result.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
-  for (const banned of [/free trial/i, /\btrial\b/i, /claude\.ai/i, /claude mcp add/i, /utm_/i, /Power up with Taplio/]) {
+  let body = result.join('\n');
+  for (const [from, to] of REPLACEMENTS) body = body.replace(from, to);
+  if (name === 'linkedin-post-writer') {
+    // Right after the H1 title and its intro paragraph.
+    body = body.replace(/(^# .+\n\n[^\n]+\n)/m, `$1\n${POST_WRITER_DIRECT_SAVE}`);
+    if (!body.includes('call `create_draft` with it right away')) throw new Error('post-writer: direct-save rule not inserted');
+  }
+  body = body.replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
+  for (const banned of BANNED) {
     if (banned.test(body)) throw new Error(`${name}: still contains ${banned}`);
   }
   return body;
@@ -62,11 +98,12 @@ mkdirSync(join(out, 'assets'), { recursive: true });
 // Manifest (Agent Plugins layout) with the OpenAI extension.
 const review = structuredClone(listing.review);
 if (demoUrl) review.demo_recording_url = demoUrl;
+const { excludedSkills: _excluded, ...listingFields } = listing;
 const manifest = {
   $schema: 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
-  name: listing.name,
-  version: listing.version,
-  description: listing.description,
+  name: listingFields.name,
+  version: listingFields.version,
+  description: listingFields.description,
   author: { name: 'Taplio', url: 'https://taplio.com' },
   homepage: 'https://taplio.com/taplio-linkedin-mcp',
   repository: 'https://github.com/TaplioOfficial/taplio-linkedin-plugin',
@@ -74,9 +111,9 @@ const manifest = {
   keywords: ['linkedin', 'taplio', 'content-creation', 'personal-branding', 'social-media'],
   extensions: {
     'com.openai': {
-      interface: listing.interface,
+      interface: listingFields.interface,
       review,
-      publication: listing.publication,
+      publication: listingFields.publication,
     },
   },
 };
@@ -93,7 +130,7 @@ cpSync(join(root, 'LICENSE'), join(out, 'LICENSE'));
 
 let count = 0;
 for (const dir of readdirSync(join(root, 'skills'), { withFileTypes: true })) {
-  if (!dir.isDirectory() || dir.name.startsWith('.')) continue;
+  if (!dir.isDirectory() || dir.name.startsWith('.') || EXCLUDED_SKILLS.has(dir.name)) continue;
   const src = join(root, 'skills', dir.name);
   const dst = join(out, 'skills', dir.name);
   cpSync(src, dst, { recursive: true });
