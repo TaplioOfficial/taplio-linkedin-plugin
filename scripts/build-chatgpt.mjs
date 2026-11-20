@@ -28,10 +28,12 @@ const NOT_CONNECTED = `### Taplio is not connected yet? Stop here.
 This skill needs the Taplio tools from this plugin. If they are unavailable or the first call fails, do not ask any questions and do not generate any output. Tell the user in one sentence to connect Taplio from this plugin and sign in with their Taplio account, then to run the request again.
 `;
 
-// Skills left out of the ChatGPT package: they promise what the Taplio tools
-// cannot do there (send a DM or a noted invitation, build a carousel file, read
-// the profile) or overlap another skill's trigger and blur ChatGPT's routing.
-const EXCLUDED_SKILLS = new Set(listing.excludedSkills ?? []);
+// Only the skills listed in includedSkills (listing.json) ship to ChatGPT: a
+// small set with no overlapping triggers keeps ChatGPT's skill routing
+// predictable and the review surface small. The others stay available to
+// the other clients and can join ChatGPT in a later version.
+const INCLUDED_SKILLS = new Set(listing.includedSkills ?? []);
+if (INCLUDED_SKILLS.size === 0) throw new Error('listing.json: includedSkills is empty');
 
 const POST_WRITER_DIRECT_SAVE = `If the user asks in the same request to save the post as a draft, write one post in their voice (no variants), call \`create_draft\` with it right away, and offer variants afterwards.
 `;
@@ -99,7 +101,7 @@ mkdirSync(join(out, 'assets'), { recursive: true });
 // Manifest (Agent Plugins layout) with the OpenAI extension.
 const review = structuredClone(listing.review);
 if (demoUrl) review.demo_recording_url = demoUrl;
-const { excludedSkills: _excluded, ...listingFields } = listing;
+const { includedSkills: _included, ...listingFields } = listing;
 const manifest = {
   $schema: 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
   name: listingFields.name,
@@ -131,7 +133,7 @@ cpSync(join(root, 'LICENSE'), join(out, 'LICENSE'));
 
 let count = 0;
 for (const dir of readdirSync(join(root, 'skills'), { withFileTypes: true })) {
-  if (!dir.isDirectory() || dir.name.startsWith('.') || EXCLUDED_SKILLS.has(dir.name)) continue;
+  if (!dir.isDirectory() || dir.name.startsWith('.') || !INCLUDED_SKILLS.has(dir.name)) continue;
   const src = join(root, 'skills', dir.name);
   const dst = join(out, 'skills', dir.name);
   cpSync(src, dst, { recursive: true });
@@ -142,4 +144,5 @@ for (const dir of readdirSync(join(root, 'skills'), { withFileTypes: true })) {
 }
 
 execFileSync('zip', ['-qr', zip, 'taplio', '-x', '*.DS_Store'], { cwd: join(root, 'dist', 'chatgpt') });
+if (count !== INCLUDED_SKILLS.size) throw new Error(`includedSkills lists ${INCLUDED_SKILLS.size} skills, ${count} found in skills/`);
 console.log(`Built ${zip} with ${count} skills${demoUrl ? '' : ' (no demo_recording_url yet: pass --demo-url before submitting)'}.`);

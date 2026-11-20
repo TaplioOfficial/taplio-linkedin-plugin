@@ -1,7 +1,19 @@
 {
   "name": "taplio",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "LinkedIn content workspace: plan, write, schedule and measure LinkedIn posts, and manage comments and replies, through your Taplio account.",
+  "includedSkills": [
+    "linkedin-post-writer",
+    "linkedin-repurposer",
+    "linkedin-hook-generator",
+    "linkedin-content-calendar-planner",
+    "linkedin-analytics-interpreter",
+    "linkedin-trending-topics-scanner",
+    "linkedin-comment-opportunity-finder",
+    "linkedin-smart-comment-writer",
+    "linkedin-comment-reply-manager",
+    "linkedin-daily-engagement-routine"
+  ],
   "interface": {
     "displayName": "Taplio",
     "shortDescription": "LinkedIn content and analytics",
@@ -79,12 +91,5 @@
   },
   "publication": {
     "release_notes": "First release in ChatGPT: write, schedule and analyze LinkedIn posts, search inspiration, and draft comments and replies through your Taplio account, with LinkedIn content skills."
-  },
-  "excludedSkills": [
-    "linkedin-dm-opener",
-    "linkedin-connection-request-hook",
-    "linkedin-carousel-builder",
-    "linkedin-profile-optimizer",
-    "linkedin-post-performance-critic"
-  ]
+  }
 }
