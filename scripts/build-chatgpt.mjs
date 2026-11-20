@@ -53,6 +53,15 @@ const REPLACEMENTS = [
   [/\bThe MCP\b/g, 'Taplio'],
   [/\(for example Claude Artifacts or ChatGPT Canvas\)/g, '(such as ChatGPT Canvas)'],
   [/keep it updated in memory/g, 'keep it updated in this conversation'],
+  // Hand-offs to skills that are not in the ChatGPT package.
+  [/ \(run the Profile Optimizer skill\)/g, ' (the profile bio may need work)'],
+  [/, hand to Warm Lead Finder/g, ', worth a follow-up conversation'],
+  [/ \(run the Warm Lead Finder\)/g, ' (worth a follow-up conversation)'],
+  [/ \(from the Content Pillars Builder skill\)/g, ' (ask the user, or derive them from their best posts)'],
+  [/ \(from the Engagement Watchlist Builder, or pick one that matches the niche\)/g, ' (pick one that matches the niche)'],
+  [/ Use the Engagement Watchlist Builder skill to build one and keep it in the assistant's memory\./g, ' The user can keep their own list of creators in this conversation.'],
+  [/ Answer, then flag them for the Warm Lead Finder skill\./g, ' Answer, then flag them as worth a follow-up conversation.'],
+  [/For a weekly view, hand off to the Engagement Tracker skill\./g, 'For a weekly view, combine `list_comment_drafts` with `get_analytics_overview`.'],
   [/Daily cap of 5 outbound comments\. More looks like automation and dilutes quality\./g, 'Daily cap of 5 outbound comments, so each one gets real attention.'],
   [/Keep the whole calendar in memory/g, 'Keep the whole calendar in this conversation'],
   [/the assistant's memory and/g, 'this conversation and'],
@@ -131,6 +140,17 @@ writeFileSync(join(out, 'mcp.json'), JSON.stringify(mcp, null, 2) + '\n');
 cpSync(join(root, '.claude-plugin', 'icon.png'), join(out, 'assets', 'icon.png'));
 cpSync(join(root, 'LICENSE'), join(out, 'LICENSE'));
 
+// Titles of the skills left out of the package: an included skill must not
+// send the user to one of them.
+const leftOutTitles = [];
+for (const dir of readdirSync(join(root, 'skills'), { withFileTypes: true })) {
+  if (!dir.isDirectory() || INCLUDED_SKILLS.has(dir.name)) continue;
+  const file = join(root, 'skills', dir.name, 'SKILL.md');
+  if (!existsSync(file)) continue;
+  const title = (readFileSync(file, 'utf8').match(/^# LinkedIn (.+)$/m) || [])[1];
+  if (title) leftOutTitles.push(title.trim());
+}
+
 let count = 0;
 for (const dir of readdirSync(join(root, 'skills'), { withFileTypes: true })) {
   if (!dir.isDirectory() || dir.name.startsWith('.') || !INCLUDED_SKILLS.has(dir.name)) continue;
@@ -139,7 +159,11 @@ for (const dir of readdirSync(join(root, 'skills'), { withFileTypes: true })) {
   cpSync(src, dst, { recursive: true });
   const skillFile = join(dst, 'SKILL.md');
   if (!existsSync(skillFile)) continue;
-  writeFileSync(skillFile, chatgptSkill(readFileSync(skillFile, 'utf8'), dir.name));
+  const body = chatgptSkill(readFileSync(skillFile, 'utf8'), dir.name);
+  for (const title of leftOutTitles) {
+    if (body.includes(title)) throw new Error(`${dir.name}: refers to "${title}", a skill not in the ChatGPT package`);
+  }
+  writeFileSync(skillFile, body);
   count++;
 }
 
