@@ -1,6 +1,6 @@
 {
   "name": "taplio",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "LinkedIn content workspace: plan, write, schedule and measure LinkedIn posts, and manage comments and replies, through your Taplio account.",
   "includedSkills": [
     "linkedin-post-writer",
@@ -17,7 +17,7 @@
   "interface": {
     "displayName": "Taplio",
     "shortDescription": "LinkedIn content and analytics",
-    "longDescription": "Taplio is a LinkedIn content and engagement workspace for founders, marketers, sales teams and creators. This plugin runs your LinkedIn content routine on your Taplio account.\n\nPlan and write: research what performs in your niche, draft posts in your voice, attach images or video, and build a content calendar.\nSchedule and publish: queue drafts for the time you choose, move them, or publish now.\nMeasure: see which posts drove impressions, engagement and follower growth, and what to do next.\nEngage: find posts worth commenting on, draft comments and replies, like posts and send connection requests.\n\nChatGPT works through your Taplio account: it prepares drafts, comments, likes and connection requests in Taplio, and Taplio carries out the ones you approve on your LinkedIn. Drafts stay drafts, and nothing goes out without your go.\n\nRequires a Taplio account with LinkedIn connected. Some actions depend on your Taplio plan. Taplio is not affiliated with LinkedIn.",
+    "longDescription": "Taplio is a LinkedIn content and engagement workspace for founders, marketers, sales teams and creators. This plugin runs your LinkedIn content routine on your Taplio account.\n\nPlan and write: research what performs in your niche, draft posts in your voice, attach images or video, and build a content calendar.\nSchedule and publish: queue drafts for the time you choose, move them, or publish now.\nMeasure: see which posts drove impressions, engagement and follower growth, and what to do next.\nEngage: find posts worth commenting on, draft comments and replies, like posts and send connection requests.\n\nChatGPT works through your Taplio account: it prepares drafts, comments, likes and connection requests in Taplio, and Taplio carries out the ones you approve on your LinkedIn. Drafts stay drafts, and nothing goes out without your go.\n\nRequires a Taplio account with LinkedIn connected. Taplio is not affiliated with LinkedIn.",
     "developerName": "lempire",
     "category": "Business & Operations",
     "websiteURL": "https://taplio.com",
