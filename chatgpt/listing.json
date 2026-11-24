@@ -1,7 +1,34 @@
 {
   "name": "taplio",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "LinkedIn content workspace: plan, write, schedule and measure LinkedIn posts, and manage comments and replies, through your Taplio account.",
+  "keywords": [
+    "linkedin",
+    "linkedin posts",
+    "linkedin post scheduler",
+    "schedule linkedin posts",
+    "linkedin content",
+    "linkedin content calendar",
+    "linkedin analytics",
+    "linkedin engagement",
+    "linkedin comments",
+    "linkedin hooks",
+    "linkedin ghostwriter",
+    "linkedin growth",
+    "linkedin inspiration",
+    "linkedin creator",
+    "personal branding",
+    "thought leadership",
+    "content creation",
+    "content calendar",
+    "post scheduling",
+    "social media scheduler",
+    "social media",
+    "social selling",
+    "creators",
+    "founders",
+    "b2b marketing"
+  ],
   "includedSkills": [
     "linkedin-post-writer",
     "linkedin-repurposer",
@@ -15,11 +42,25 @@
     "linkedin-daily-engagement-routine"
   ],
   "interface": {
-    "displayName": "Taplio",
-    "shortDescription": "LinkedIn content and analytics",
-    "longDescription": "Taplio is a LinkedIn content and engagement workspace for founders, marketers, sales teams and creators. This plugin runs your LinkedIn content routine on your Taplio account.\n\nPlan and write: research what performs in your niche, draft posts in your voice, attach images or video, and build a content calendar.\nSchedule and publish: queue drafts for the time you choose, move them, or publish now.\nMeasure: see which posts drove impressions, engagement and follower growth, and what to do next.\nEngage: find posts worth commenting on, draft comments and replies, like posts and send connection requests.\n\nChatGPT works through your Taplio account: it prepares drafts, comments, likes and connection requests in Taplio, and Taplio carries out the ones you approve on your LinkedIn. Drafts stay drafts, and nothing goes out without your go.\n\nRequires a Taplio account with LinkedIn connected. Taplio is not affiliated with LinkedIn.",
+    "displayName": "Taplio for LinkedIn",
+    "shortDescription": "Write, schedule, analyze posts",
+    "longDescription": "Write, schedule and analyze your LinkedIn posts from ChatGPT. Taplio is a LinkedIn content and engagement workspace for founders, marketers, sales teams and creators. This plugin runs your LinkedIn content routine on your Taplio account.\n\nPlan and write: research what performs in your niche, draft posts in your voice, attach images or video, and build a content calendar.\nSchedule and publish: queue drafts for the time you choose, move them, or publish now.\nMeasure: see which posts drove impressions, engagement and follower growth, and what to do next.\nEngage: find posts worth commenting on, draft comments and replies, like posts and send connection requests.\n\nChatGPT works through your Taplio account: it prepares drafts, comments, likes and connection requests in Taplio, and Taplio carries out the ones you approve on your LinkedIn. Drafts stay drafts, and nothing goes out without your go.\n\nRequires a Taplio account with LinkedIn connected. Taplio is not affiliated with LinkedIn.",
     "developerName": "lempire",
     "category": "Business & Operations",
+    "capabilities": [
+      "Write LinkedIn posts in your voice and save them as drafts",
+      "Schedule LinkedIn posts for a date and time, or publish now",
+      "Plan a monthly LinkedIn content calendar",
+      "Find high-performing LinkedIn posts in your niche for inspiration",
+      "Spot trending topics and write hooks for your next post",
+      "Repurpose a blog post, video or newsletter into a LinkedIn post",
+      "Add images or video from a link or your Taplio media library",
+      "Analyze impressions, engagement and follower growth",
+      "Rank your posts and explain what made the best ones work",
+      "Find LinkedIn posts worth commenting on and draft comments",
+      "Reply to the comments under your posts",
+      "Like posts and send connection requests you approve"
+    ],
     "websiteURL": "https://taplio.com",
     "supportURL": "https://intercom.help/taplio",
     "privacyPolicyURL": "https://taplio.com/our-privacy-policy",
@@ -27,7 +68,7 @@
     "defaultPrompt": [
       "Which of my LinkedIn posts worked best this month, and what should I post next?",
       "Look at what performs in my niche and draft a LinkedIn post in my voice. Save it as a draft.",
-      "Find five posts in my niche worth commenting on and draft a comment for each."
+      "Find five LinkedIn posts in my niche worth commenting on and draft a comment for each."
     ],
     "brandColor": "#3556E6",
     "brandColorDark": "#3556E6",

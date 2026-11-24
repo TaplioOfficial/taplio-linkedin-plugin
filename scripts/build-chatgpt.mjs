@@ -112,6 +112,10 @@ mkdirSync(join(out, 'assets'), { recursive: true });
 const review = structuredClone(listing.review);
 if (demoUrl) review.demo_recording_url = demoUrl;
 const { includedSkills: _included, ...listingFields } = listing;
+// OpenAI reads keywords as discovery terms and accepts at most 25.
+if (!Array.isArray(listingFields.keywords) || listingFields.keywords.length === 0 || listingFields.keywords.length > 25) {
+  throw new Error('listing.json: keywords must list 1 to 25 terms');
+}
 const manifest = {
   $schema: 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
   name: listingFields.name,
@@ -121,7 +125,7 @@ const manifest = {
   homepage: 'https://taplio.com/taplio-linkedin-mcp',
   repository: 'https://github.com/TaplioOfficial/taplio-linkedin-plugin',
   license: 'MIT',
-  keywords: ['linkedin', 'taplio', 'content-creation', 'personal-branding', 'social-media'],
+  keywords: listingFields.keywords,
   extensions: {
     'com.openai': {
       interface: listingFields.interface,
