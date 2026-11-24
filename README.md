@@ -2,7 +2,7 @@
 
 A Claude plugin with **26 Claude Skills for LinkedIn**. Install it once and Claude can write, plan, engage, and grow your LinkedIn presence, working on your real voice, audience, and analytics through your Taplio account.
 
-Taplio is an independent product. It is not affiliated with, endorsed by, or sponsored by LinkedIn.
+Taplio is an independent product. It is not affiliated with, endorsed by, or sponsored by LinkedIn. LinkedIn is a registered trademark of LinkedIn Corporation.
 
 ## What's inside
 
@@ -15,11 +15,11 @@ Taplio is an independent product. It is not affiliated with, endorsed by, or spo
 - **Engagement**: comment opportunity finder, smart comment writer, comment reply manager, warm lead finder, engagement watchlist builder, daily engagement routine, engagement tracker
 - **Networking**: connection request hook, DM opener
 
-The plugin contains markdown skills and one remote MCP server declaration, the official Taplio connector (`https://mcp.taplio.com/`). No scripts, no hooks, nothing that runs on your machine.
+The plugin contains markdown skills and one remote MCP server declaration, the Taplio connector (`https://mcp.taplio.com/`). No scripts, no hooks, nothing that runs on your machine.
 
-## Runs on the official Taplio connector
+## Runs on the Taplio connector
 
-Every skill runs on the **official Taplio Claude connector** (the Taplio MCP server, `https://mcp.taplio.com/`), the same server that is listed in the Claude directory. The plugin declares it with that exact URL, so if you already connected the Taplio connector you keep one set of Taplio tools, not two.
+Every skill runs on the **Taplio connector for Claude** (the Taplio MCP server, `https://mcp.taplio.com/`), the same server that is listed in the Claude directory. The plugin declares it with that exact URL, so if you already connected the Taplio connector you keep one set of Taplio tools, not two.
 
 - **Claude on the web, desktop, or mobile, and Cowork**: if the connector is not connected yet, connect it from [claude.ai/customize/connectors/id/taplio](https://claude.ai/customize/connectors/id/taplio) (or Customize > Connectors > Discover, search "Taplio", Connect to Claude, sign in, Allow access).
 - **Claude Code**: the plugin brings the server. Sign in to Taplio in the browser on the first tool call. If you previously added it by hand with `claude mcp add`, remove that entry (`claude mcp remove taplio`) to avoid seeing the tools twice.

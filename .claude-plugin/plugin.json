@@ -1,7 +1,7 @@
 {
   "name": "taplio",
   "displayName": "Taplio for LinkedIn",
-  "description": "26 Claude Skills for LinkedIn (post writing, hooks, carousels, niche and pillar strategy, content calendars, analytics, comment opportunities, smart comments and replies, likes, warm leads, engagement routine and tracking, connection requests, DM openers). Runs on the official Taplio connector, so every skill works on your real LinkedIn voice, audience, threads, and numbers.",
+  "description": "26 LinkedIn skills for Claude: write and schedule posts, find hooks, build carousels and a content calendar, read your analytics, reply to comments, spot warm leads, and write connection requests and DM openers. They run on your Taplio account through the Taplio connector, so they work on your real voice, audience and numbers as you grow your personal brand.",
   "version": "2.2.0",
   "author": {
     "name": "Taplio",
@@ -10,6 +10,11 @@
   "homepage": "https://taplio.com/claude-skills-for-linkedin",
   "repository": "https://github.com/TaplioOfficial/taplio-linkedin-plugin",
   "license": "MIT",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://taplio.com/claude-skills-for-linkedin",
+  "supportUrl": "https://intercom.help/taplio",
+  "privacyPolicyUrl": "https://taplio.com/our-privacy-policy",
+  "termsOfServiceUrl": "https://taplio.com/terms-of-service",
   "keywords": [
     "linkedin",
     "taplio",
