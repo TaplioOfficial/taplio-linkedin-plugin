@@ -1,6 +1,6 @@
 {
   "name": "taplio",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "LinkedIn content workspace: plan, write, schedule and measure LinkedIn posts, and manage comments and replies, through your Taplio account.",
   "includedSkills": [
     "linkedin-post-writer",
