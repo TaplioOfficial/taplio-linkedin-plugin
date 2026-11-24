@@ -4,7 +4,8 @@
 //
 // What differs from the shared plugin, per OpenAI's plugin guidelines:
 // - listing, review cases and release notes come from chatgpt/listing.json;
-// - mcp.json declares OAuth with dynamic client registration;
+// - mcp.json declares OAuth with dynamic client registration and requests
+//   the taplio:mcp scope on every authorization request;
 // - each skill's "not connected" section points to this plugin instead of
 //   offering a trial and Claude install steps, and the "Power up with Taplio"
 //   section is left out (no promotion, no other assistant named).
@@ -133,7 +134,9 @@ writeFileSync(join(out, 'plugin.json'), JSON.stringify(manifest, null, 2) + '\n'
 
 const mcp = JSON.parse(readFileSync(join(root, 'mcp.json'), 'utf8'));
 for (const server of Object.values(mcp.mcpServers)) {
-  server.extensions = { 'com.openai': { auth: { type: 'oauth', client: { mode: 'dcr' } } } };
+  server.extensions = {
+    'com.openai': { auth: { type: 'oauth', client: { mode: 'dcr' }, baseScopes: ['taplio:mcp'] } },
+  };
 }
 writeFileSync(join(out, 'mcp.json'), JSON.stringify(mcp, null, 2) + '\n');
 
