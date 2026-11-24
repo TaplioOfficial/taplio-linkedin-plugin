@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "taplio",
+  "description": "Work from your real LinkedIn data in Copilot: read your post analytics, find what performs in your niche, plan and draft posts on that evidence, and handle comments on your posts, through the Taplio MCP server.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Taplio",
+    "url": "https://taplio.com"
+  },
+  "repository": "https://github.com/TaplioOfficial/taplio-linkedin-plugin",
+  "license": "MIT",
+  "keywords": [
+    "linkedin",
+    "mcp",
+    "analytics",
+    "content-planning",
+    "taplio"
+  ]
+}
