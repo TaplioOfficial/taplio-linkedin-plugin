@@ -112,6 +112,10 @@ npx skills add TaplioOfficial/taplio-linkedin-plugin
 - Skills source: https://github.com/TaplioOfficial/taplio-linkedin-claude-skills
 - MCP server: https://github.com/TaplioOfficial/taplio-linkedin-mcp
 - Product page: https://taplio.com/claude-skills-for-linkedin
+- Support: https://intercom.help/taplio
+- Privacy policy: https://taplio.com/our-privacy-policy
+- Terms of service: https://taplio.com/terms-of-service
+- Security: see [SECURITY.md](SECURITY.md)
 
 ## License
 
