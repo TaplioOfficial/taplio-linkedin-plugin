@@ -1,19 +1,19 @@
 # Taplio for LinkedIn (Claude plugin)
 
-A Claude plugin with **26 Claude Skills for LinkedIn**. Install it once and Claude can write, plan, engage, and grow your LinkedIn presence, working on your real voice, audience, and analytics through your Taplio account.
+A Claude plugin with **27 Claude Skills for LinkedIn**. Install it once and Claude can write, plan, find leads, engage, and grow your LinkedIn presence, working on your real voice, audience, and analytics through your Taplio account.
 
 Taplio is an independent product. It is not affiliated with, endorsed by, or sponsored by LinkedIn. LinkedIn is a registered trademark of LinkedIn Corporation.
 
 ## What's inside
 
-**26 skills** across six areas:
+**27 skills** across six areas:
 
 - **Content creation**: post writer, hook generator, carousel builder, repurposer, story extractor, CTA optimizer
 - **Research and inspiration**: niche creator finder, viral post analyzer, trending topics scanner, swipe file builder
 - **Strategy**: niche definer, content pillars builder, audience persona builder, content calendar planner
 - **Analytics and profile**: post performance critic, analytics interpreter, profile optimizer
 - **Engagement**: comment opportunity finder, smart comment writer, comment reply manager, warm lead finder, engagement watchlist builder, daily engagement routine, engagement tracker
-- **Networking**: connection request hook, DM opener
+- **Networking**: lead list builder (searches Taplio's lead database for prospects that match your ideal customer), connection request hook, DM opener
 
 The plugin contains markdown skills and one remote MCP server declaration, the Taplio connector (`https://mcp.taplio.com/`). No scripts, no hooks, nothing that runs on your machine.
 
@@ -30,7 +30,7 @@ Each skill calls `get_me` first. If the connector is not connected, the skill st
 
 ## What the skills do with the connector
 
-Through the connector, the skills read your Taplio profile settings, your posts, drafts, and analytics, inspiration posts from other creators, and the comment threads worth engaging with. They can save drafts, schedule posts, draft and schedule comments and replies under your name, like posts and comments, and queue plain connection requests. All of it goes through your own Taplio account; the skills send nothing to any other service.
+Through the connector, the skills read your Taplio profile settings, your posts, drafts, and analytics, inspiration posts from other creators, leads from Taplio's lead database (Pro plan), and the comment threads worth engaging with. They can save drafts, schedule posts, draft and schedule comments and replies under your name, like posts and comments, and queue plain connection requests. All of it goes through your own Taplio account; the skills send nothing to any other service.
 
 Nothing reaches LinkedIn without your say-so. Publishing a post, committing a comment or reply, liking, and sending a connection request are always gated behind your explicit confirmation, and the skills quote the scheduled time instead of saying something is live until the connector confirms it.
 
@@ -53,13 +53,13 @@ claude --plugin-dir ./taplio-linkedin-plugin
 
 ## Cursor
 
-The same repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). In Cursor, the plugin brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`), so there is nothing to connect separately: install it, then sign in to Taplio in the browser on the first tool call.
+The same repository is also a Cursor plugin (`.cursor-plugin/plugin.json`). In Cursor, the plugin brings the 27 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`), so there is nothing to connect separately: install it, then sign in to Taplio in the browser on the first tool call.
 
 To try it locally, copy this folder to `~/.cursor/plugins/local/taplio` and restart Cursor. If you already added a `taplio` server in `~/.cursor/mcp.json`, remove it to avoid seeing the tools twice.
 
 ## Grok Build
 
-The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). It brings the 26 skills, and one more command adds the Taplio MCP server (`https://mcp.taplio.com/`).
+The repository is also a Grok Build plugin (`.grok-plugin/plugin.json`), for the [xAI plugin marketplace](https://github.com/xai-org/plugin-marketplace). It brings the 27 skills, and one more command adds the Taplio MCP server (`https://mcp.taplio.com/`).
 
 Install it straight from this repository, then add the Taplio MCP server:
 
@@ -72,7 +72,7 @@ Then open `/mcps` in Grok, select `taplio` and press `i` to sign in to Taplio in
 
 ## GitHub Copilot
 
-The repository is also an [Agent Plugins v1.0.0](https://agent-plugins.org) plugin (root `plugin.json`, skills in `skills/`, MCP server in `mcp.json`), which GitHub Copilot CLI and VS Code load natively. As in Cursor, it brings the 26 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
+The repository is also an [Agent Plugins v1.0.0](https://agent-plugins.org) plugin (root `plugin.json`, skills in `skills/`, MCP server in `mcp.json`), which GitHub Copilot CLI and VS Code load natively. As in Cursor, it brings the 27 skills **and** the Taplio MCP server (`https://mcp.taplio.com/`); sign in to Taplio in the browser on the first tool call.
 
 ```bash
 copilot plugin install TaplioOfficial/taplio-linkedin-plugin
@@ -80,24 +80,30 @@ copilot plugin install TaplioOfficial/taplio-linkedin-plugin
 
 ## Gemini CLI
 
-The repository is also a Gemini CLI extension (`gemini-extension.json`). It brings the 26 skills and the Taplio MCP server; Gemini CLI discovers the OAuth sign-in on the first tool call.
+The repository is also a Gemini CLI extension (`gemini-extension.json`). It brings the 27 skills and the Taplio MCP server; Gemini CLI discovers the OAuth sign-in on the first tool call.
 
 ```bash
 gemini extensions install https://github.com/TaplioOfficial/taplio-linkedin-plugin
 ```
+
+## Kiro
+
+[![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=taplio&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.taplio.com%2F%22%2C%22oauthScopes%22%3A%5B%22taplio%3Amcp%22%5D%7D)
+
+The button adds the Taplio MCP server (`https://mcp.taplio.com/`) to Kiro, with the `taplio:mcp` OAuth scope; Kiro opens the Taplio sign-in in the browser when it connects. It adds the MCP server only, not the skills.
 
 ## ChatGPT (Business, Enterprise and Edu workspaces)
 
 Until Taplio is in the public ChatGPT plugin directory, a workspace admin or owner can add it on ChatGPT web:
 
 1. **The Taplio MCP server:** in Plugins, select **+**, then **Add custom MCP server**. Enter `https://mcp.taplio.com/` as the endpoint and OAuth as the authentication, accept the risk warning, select **Create as a plugin**, and sign in to Taplio when prompted. Then publish it for the workspace (Admin Console > Plugins).
-2. **The 26 skills (optional):** in Admin Console > Plugins, select **Add** > **Import marketplace** and enter `https://github.com/TaplioOfficial/taplio-linkedin-plugin`. ChatGPT reads `.claude-plugin/marketplace.json` and syncs the skills daily.
+2. **The 27 skills (optional):** in Admin Console > Plugins, select **Add** > **Import marketplace** and enter `https://github.com/TaplioOfficial/taplio-linkedin-plugin`. ChatGPT reads `.claude-plugin/marketplace.json` and syncs the skills daily.
 
 Each member then signs in to their own Taplio account on the first tool call.
 
 ## Other agents (skills only)
 
-To add the 26 skills to any agent supported by [skills.sh](https://skills.sh), then connect the Taplio MCP server (`https://mcp.taplio.com/`) in that agent:
+To add the 27 skills to any agent supported by [skills.sh](https://skills.sh), then connect the Taplio MCP server (`https://mcp.taplio.com/`) in that agent:
 
 ```bash
 npx skills add TaplioOfficial/taplio-linkedin-plugin
@@ -108,6 +114,10 @@ npx skills add TaplioOfficial/taplio-linkedin-plugin
 - Skills source: https://github.com/TaplioOfficial/taplio-linkedin-claude-skills
 - MCP server: https://github.com/TaplioOfficial/taplio-linkedin-mcp
 - Product page: https://taplio.com/claude-skills-for-linkedin
+- Support: https://intercom.help/taplio
+- Privacy policy: https://taplio.com/our-privacy-policy
+- Terms of service: https://taplio.com/terms-of-service
+- Security: see [SECURITY.md](SECURITY.md)
 
 ## License
 

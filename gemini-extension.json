@@ -1,7 +1,7 @@
 {
   "name": "taplio",
-  "version": "2.1.1",
-  "description": "Run your LinkedIn from Gemini CLI: 26 skills plus the Taplio MCP server to write, schedule and analyze LinkedIn posts, find inspiration, comment, like and connect through your Taplio account.",
+  "version": "2.2.0",
+  "description": "Run your LinkedIn from Gemini CLI: 27 skills plus the Taplio MCP server to write, schedule and analyze LinkedIn posts, search Taplio's lead database for prospects, find inspiration, comment, like and connect through your Taplio account.",
   "mcpServers": {
     "taplio": {
       "httpUrl": "https://mcp.taplio.com/"
