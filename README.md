@@ -84,6 +84,12 @@ The repository is also a Gemini CLI extension (`gemini-extension.json`). It brin
 gemini extensions install https://github.com/TaplioOfficial/taplio-linkedin-plugin
 ```
 
+## Kiro
+
+[![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=taplio&config=%7B%22url%22%3A%22https%3A%2F%2Fmcp.taplio.com%2F%22%2C%22oauthScopes%22%3A%5B%22taplio%3Amcp%22%5D%7D)
+
+The button adds the Taplio MCP server (`https://mcp.taplio.com/`) to Kiro, with the `taplio:mcp` OAuth scope; Kiro opens the Taplio sign-in in the browser when it connects. It adds the MCP server only, not the skills.
+
 ## ChatGPT (Business, Enterprise and Edu workspaces)
 
 Until Taplio is in the public ChatGPT plugin directory, a workspace admin or owner can add it on ChatGPT web:
@@ -106,6 +112,10 @@ npx skills add TaplioOfficial/taplio-linkedin-plugin
 - Skills source: https://github.com/TaplioOfficial/taplio-linkedin-claude-skills
 - MCP server: https://github.com/TaplioOfficial/taplio-linkedin-mcp
 - Product page: https://taplio.com/claude-skills-for-linkedin
+- Support: https://intercom.help/taplio
+- Privacy policy: https://taplio.com/our-privacy-policy
+- Terms of service: https://taplio.com/terms-of-service
+- Security: see [SECURITY.md](SECURITY.md)
 
 ## License
 
