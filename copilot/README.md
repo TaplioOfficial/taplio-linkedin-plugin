@@ -49,6 +49,7 @@ The skills call no service other than the Taplio MCP server. Through it, they re
 
 - This folder is generated from the shared skills of this repository by `scripts/build-copilot.mjs`. Edit `copilot-src/` or `skills/`, then rebuild; do not edit this folder by hand.
 - MCP server: https://github.com/TaplioOfficial/taplio-linkedin-mcp
+- Copilot CLI runs of two skills, with and without the server: [copilot-runs.md](../copilot-src/copilot-runs.md)
 
 ## License
 
