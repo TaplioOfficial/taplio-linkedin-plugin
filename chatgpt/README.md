@@ -1,6 +1,6 @@
 # ChatGPT plugin package
 
-OpenAI's plugin directory takes a ZIP with the listing, the review test cases and the skills. This folder holds what only ChatGPT needs; the build reuses `skills/`, `mcp.json` and the icon from the repo root and leaves them untouched for the other clients.
+OpenAI's plugin directory takes a ZIP with the listing, the review test cases and the skills. This folder holds what only ChatGPT needs; the build reuses `skills/` and `mcp.json` from the repo root and leaves them untouched for the other clients. The ChatGPT package uses its own icon, `chatgpt/icon.png` (the Taplio app icon), instead of the plugin icon in `.claude-plugin/`.
 
 ```bash
 node scripts/build-chatgpt.mjs --demo-url <reviewer-accessible video URL>
@@ -13,7 +13,7 @@ What the build changes for ChatGPT:
 - `plugin.json` carries the `com.openai` extension from `chatgpt/listing.json`: listing fields (display name, subtitle, description, capabilities, starter prompts), 5 positive and 3 negative test cases, release notes. Its `keywords` (at most 25, the discovery terms of the directory) also come from `listing.json`.
 - `mcp.json` declares OAuth with dynamic client registration and asks for the `taplio:mcp` scope on every authorization request (`baseScopes`), the scope the Taplio MCP server grants.
 - In every skill, the "not connected" section points to this plugin instead of the trial link and the Claude install steps, and "Power up with Taplio" is left out. OpenAI's guidelines forbid trial offers and promotion in a plugin. Mentions of "the Taplio MCP" become "the Taplio tools", and memory promises become "this conversation". The build fails if a skill still mentions a trial, Claude, MCP or a UTM link.
-- Only the skills listed in `includedSkills` (listing.json) ship to ChatGPT: 10 skills with no overlapping triggers, so ChatGPT picks the right one and the review stays small. The other 16 stay available to the other clients and can join ChatGPT in a later version (each change to the skills means a new ZIP and a new review).
+- Only the skills listed in `includedSkills` (listing.json) ship to ChatGPT: 11 skills with no overlapping triggers, so ChatGPT picks the right one and the review stays small. The other 16 stay available to the other clients and can join ChatGPT in a later version (each change to the skills means a new ZIP and a new review).
 - `linkedin-post-writer` saves a single post right away when the user asks for a draft in the same request, so the review test case gets `create_draft` in one turn.
 
 Not in the ZIP, entered in the portal: the reviewer account and its sign-in steps, the OAuth client secret (none with dynamic registration), and the domain verification token, served by the MCP server at `https://mcp.taplio.com/.well-known/openai-apps-challenge`.
