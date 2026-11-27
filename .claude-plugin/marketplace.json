@@ -13,7 +13,7 @@
       "displayName": "Taplio for LinkedIn",
       "source": "./",
       "description": "27 skills for LinkedIn (post writing, hooks, carousels, strategy, analytics, lead search, comments and replies, warm leads, connection requests), running on the Taplio MCP server.",
-      "version": "2.2.0",
+      "version": "2.3.0",
       "homepage": "https://taplio.com/claude-skills-for-linkedin",
       "category": "productivity"
     }
