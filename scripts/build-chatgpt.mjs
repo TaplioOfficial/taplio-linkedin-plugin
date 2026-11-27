@@ -66,6 +66,10 @@ const REPLACEMENTS = [
   [/Daily cap of 5 outbound comments\. More looks like automation and dilutes quality\./g, 'Daily cap of 5 outbound comments, so each one gets real attention.'],
   [/Keep the whole calendar in memory/g, 'Keep the whole calendar in this conversation'],
   [/the assistant's memory and/g, 'this conversation and'],
+  // Lead List Builder: trial quota and hand-offs to skills outside the package.
+  [/ \(100 during the free trial\)/g, ''],
+  [/, or the Warm Lead Finder skill ran out of commenters and the user wants more people to reach\./g, ', or wants more people to reach than the ones already in their comments.'],
+  [/the Connection Request Hook skill writes a note for the user to send by hand on LinkedIn ; the DM Opener skill writes the first message once they are connected\./g, 'write a short note for the user to send by hand on LinkedIn, or the first message once they are connected.'],
 ];
 
 const BANNED = [/looks like automation/i, /free trial/i, /\btrial\b/i, /claude\.ai/i, /claude mcp add/i, /\bClaude\b/, /utm_/i, /Power up with Taplio/, /\bMCP\b/];
@@ -144,7 +148,9 @@ for (const server of Object.values(mcp.mcpServers)) {
 }
 writeFileSync(join(out, 'mcp.json'), JSON.stringify(mcp, null, 2) + '\n');
 
-cpSync(join(root, '.claude-plugin', 'icon.png'), join(out, 'assets', 'icon.png'));
+// ChatGPT has a single listing for Taplio, so it shows the plain Taplio app
+// icon; the plugin icon in .claude-plugin stays for the other clients.
+cpSync(join(root, 'chatgpt', 'icon.png'), join(out, 'assets', 'icon.png'));
 cpSync(join(root, 'LICENSE'), join(out, 'LICENSE'));
 
 // Titles of the skills left out of the package: an included skill must not

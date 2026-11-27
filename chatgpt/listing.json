@@ -1,7 +1,7 @@
 {
   "name": "taplio",
-  "version": "1.0.7",
-  "description": "LinkedIn content workspace: plan, write, schedule and measure LinkedIn posts, and manage comments and replies, through your Taplio account.",
+  "version": "1.0.8",
+  "description": "LinkedIn workspace: plan, write, schedule and measure LinkedIn posts, engage with comments, and find leads to connect with, through your Taplio account.",
   "keywords": [
     "linkedin",
     "linkedin posts",
@@ -19,15 +19,15 @@
     "linkedin creator",
     "personal branding",
     "thought leadership",
-    "content creation",
     "content calendar",
     "post scheduling",
     "social media scheduler",
-    "social media",
     "social selling",
-    "creators",
-    "founders",
-    "b2b marketing"
+    "b2b marketing",
+    "linkedin leads",
+    "linkedin prospecting",
+    "lead generation",
+    "find leads"
   ],
   "includedSkills": [
     "linkedin-post-writer",
@@ -39,12 +39,13 @@
     "linkedin-comment-opportunity-finder",
     "linkedin-smart-comment-writer",
     "linkedin-comment-reply-manager",
-    "linkedin-daily-engagement-routine"
+    "linkedin-daily-engagement-routine",
+    "linkedin-lead-list-builder"
   ],
   "interface": {
     "displayName": "Taplio for LinkedIn",
     "shortDescription": "Write, schedule, analyze posts",
-    "longDescription": "Write, schedule and analyze your LinkedIn posts from ChatGPT. Taplio is a LinkedIn content and engagement workspace for founders, marketers, sales teams and creators. This plugin runs your LinkedIn content routine on your Taplio account.\n\nPlan and write: research what performs in your niche, draft posts in your voice, attach images or video, and build a content calendar.\nSchedule and publish: queue drafts for the time you choose, move them, or publish now.\nMeasure: see which posts drove impressions, engagement and follower growth, and what to do next.\nEngage: find posts worth commenting on, draft comments and replies, like posts and send connection requests.\n\nChatGPT works through your Taplio account: it prepares drafts, comments, likes and connection requests in Taplio, and Taplio carries out the ones you approve on your LinkedIn. Drafts stay drafts, and nothing goes out without your go.\n\nRequires a Taplio account with LinkedIn connected. Taplio is not affiliated with LinkedIn.",
+    "longDescription": "Write, schedule and analyze your LinkedIn posts from ChatGPT. Taplio is a LinkedIn content and engagement workspace for founders, marketers, sales teams and creators. This plugin runs your LinkedIn content routine on your Taplio account.\n\nPlan and write: research what performs in your niche, draft posts in your voice, attach images or video, and build a content calendar.\nSchedule and publish: queue drafts for the time you choose, move them, or publish now.\nMeasure: see which posts drove impressions, engagement and follower growth, and what to do next.\nEngage: find posts worth commenting on, draft comments and replies, like posts and send connection requests.\nFind leads: search Taplio's LinkedIn lead database by role, seniority, department, industry, country and company size, and queue the connection requests you approve.\n\nChatGPT works through your Taplio account: it prepares drafts, comments, likes and connection requests in Taplio, and Taplio carries out the ones you approve on your LinkedIn. Drafts stay drafts, and nothing goes out without your go.\n\nRequires a Taplio account with LinkedIn connected; lead search is on the Taplio Pro plan. Taplio is not affiliated with LinkedIn.",
     "developerName": "lempire",
     "category": "Business & Operations",
     "capabilities": [
@@ -57,9 +58,9 @@
       "Add images or video from a link or your Taplio media library",
       "Analyze impressions, engagement and follower growth",
       "Rank your posts and explain what made the best ones work",
-      "Find LinkedIn posts worth commenting on and draft comments",
+      "Find LinkedIn posts worth commenting on, like them and draft comments",
       "Reply to the comments under your posts",
-      "Like posts and send connection requests you approve"
+      "Find leads by role, industry and country, and send connection requests you approve"
     ],
     "websiteURL": "https://taplio.com",
     "supportURL": "https://intercom.help/taplio",
@@ -131,6 +132,6 @@
     }
   },
   "publication": {
-    "release_notes": "First release in ChatGPT: write, schedule and analyze LinkedIn posts, search inspiration, and draft comments and replies through your Taplio account, with LinkedIn content skills."
+    "release_notes": "First release in ChatGPT: write, schedule and analyze LinkedIn posts, search inspiration, draft comments and replies, and find leads to connect with, through your Taplio account, with LinkedIn content skills."
   }
 }
