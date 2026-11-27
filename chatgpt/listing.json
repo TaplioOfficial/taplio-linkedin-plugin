@@ -107,8 +107,8 @@
         {
           "description": "Rank the user's recent posts by performance.",
           "prompt": "Which of my posts from the last 30 days performed best?",
-          "tools_triggered": "list_posts, get_post_analytics",
-          "expected_behavior": "Lists the posts published in the last 30 days, reads their analytics and ranks them by engagement, naming the best one and what made it work."
+          "tools_triggered": "get_post_analytics",
+          "expected_behavior": "Reads the per-post analytics of the last 30 days with get_post_analytics and ranks the posts by engagement, naming the best one and what made it work."
         }
       ],
       "negative": [
