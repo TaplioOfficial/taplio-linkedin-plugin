@@ -103,6 +103,16 @@ Until Taplio is in the public ChatGPT plugin directory, a workspace admin or own
 
 Each member then signs in to their own Taplio account on the first tool call.
 
+## DeepSeek Harness
+
+The repository is also a DeepSeek Harness (dsh) plugin: `package.json` declares a `dsh.bundle` manifest and `cordis.patch.yml` mounts `dsh/index.js`. The plugin registers the Taplio MCP server (`https://mcp.taplio.com/`) with the dsh MCP manager and adds the 27 skills.
+
+```bash
+dsh plugin --profile web add github:TaplioOfficial/taplio-linkedin-plugin
+```
+
+Then open **Plugins**, select **Connect Taplio** and sign in to Taplio in the browser. The tools show up as `mcp__taplio__*`; the skills load on demand.
+
 ## Other agents (skills only)
 
 To add the 27 skills to any agent supported by [skills.sh](https://skills.sh), then connect the Taplio MCP server (`https://mcp.taplio.com/`) in that agent:
