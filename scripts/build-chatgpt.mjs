@@ -68,6 +68,7 @@ const REPLACEMENTS = [
   [/the assistant's memory and/g, 'this conversation and'],
   // Lead List Builder: trial quota and hand-offs to skills outside the package.
   [/ \(100 during the free trial\)/g, ''],
+  [/ \(lead search is on the Pro plan\)/g, ''],
   [/, or the Warm Lead Finder skill ran out of commenters and the user wants more people to reach\./g, ', or wants more people to reach than the ones already in their comments.'],
   [/the Connection Request Hook skill writes a note for the user to send by hand on LinkedIn ; the DM Opener skill writes the first message once they are connected\./g, 'write a short note for the user to send by hand on LinkedIn, or the first message once they are connected.'],
 ];
