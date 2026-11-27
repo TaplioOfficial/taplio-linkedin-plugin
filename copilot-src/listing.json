@@ -1,0 +1,50 @@
+{
+  "name": "taplio",
+  "version": "1.0.0",
+  "description": "Work from your real LinkedIn data in Copilot: read your post analytics, find what performs in your niche, plan and draft posts on that evidence, and handle comments on your posts, through the Taplio MCP server.",
+  "keywords": ["linkedin", "mcp", "analytics", "content-planning", "taplio"],
+  "skills": {
+    "linkedin-analytics-interpreter": {
+      "description": "Translate LinkedIn analytics (impressions, engagement, profile visits, follower growth, top and bottom posts) into a clear diagnosis : what is working, what is not, and 3 specific actions for next month. Use when the user wants to understand their LinkedIn numbers or decide what to change. With the Taplio MCP server connected it pulls the user's own analytics and per-post data ; without it, it works from numbers the user pastes.",
+      "fallback": "ask for the inputs listed under \"Inputs to ask for\" (numbers copied from LinkedIn's own analytics pages or their export work), then run the same diagnosis on them."
+    },
+    "linkedin-post-performance-critic": {
+      "description": "Cold-read a LinkedIn post draft and audit it across 6 dimensions (hook, structure, scannability, specificity, CTA, voice). Returns a score per dimension, the 2 most important fixes, and a rewrite of the weakest section. Use before publishing, when the user wants an honest critique. With the Taplio MCP server connected it reads the user's voice settings, their saved drafts, and high-performing posts on the same topic as benchmarks ; without it, it audits the pasted draft alone.",
+      "fallback": "audit the draft the user pastes on the 6 dimensions, take the voice and audience from what they tell you, and skip the niche benchmark."
+    },
+    "linkedin-content-pillars-builder": {
+      "description": "Define 3 to 5 LinkedIn content pillars consistent with the user's positioning, plus 5 to 10 post topics for each. Use when the user's content feels random and they want a system. With the Taplio MCP server connected it grounds the pillars in which of the user's own themes already perform and in high-performing posts from their niche ; without it, it works from the user's expertise, audience, and any past posts they paste.",
+      "fallback": "ask for the inputs listed under \"Inputs to ask for\" and, if they have them, their last 10 to 20 posts with rough engagement. Mark each pillar as a new bet unless the pasted posts show it already performs, and leave out the Taplio AI settings line of the closing block."
+    },
+    "linkedin-viral-post-analyzer": {
+      "description": "Decode why a specific LinkedIn post performed unusually well : hook, structure, format, emotional triggers, timing, and audience match, then a reusable template the user can apply to their own content. Use when the user pastes a high-performing post they want to learn from, or wants to study what wins in their niche. With the Taplio MCP server connected it can source high-engagement posts to study and pull the numbers of the user's own posts ; without it, it analyzes the post the user pastes.",
+      "fallback": "analyze the post the user pastes with the numbers they give, and say when the author's baseline cannot be checked."
+    },
+    "linkedin-trending-topics-scanner": {
+      "description": "Surface the topics gaining traction this week in the user's LinkedIn niche, with a with-the-wave and an against-the-wave angle for each, tied to their positioning. Use when the user is out of ideas or wants to react to what their industry is discussing. With the Taplio MCP server connected it reads recent high-engagement posts from Taplio's index of public LinkedIn posts ; without it, it works only from posts or news the user shares and does not claim anything is trending.",
+      "fallback": "say plainly that you have no live view of what is spiking on LinkedIn, then offer to cluster posts, headlines, or newsletter items the user pastes into topics and angles. Never present a topic as trending without that evidence."
+    },
+    "linkedin-niche-creator-finder": {
+      "description": "Identify the LinkedIn creators who perform in a given niche, with their angle, format mix, and what makes their content work, as a ranked list with one concrete thing to model from each. Use when the user starts on LinkedIn, explores a new niche, or wants creators to learn from. With the Taplio MCP server connected it clusters high-engagement posts from Taplio's index of public LinkedIn posts by author ; without it, it ranks creators the user names or pastes.",
+      "fallback": "ask the user to name or paste creators they already follow in the niche (name, headline, a few recent posts), rank those with the same criteria, and label tier, cadence, and engagement as unverified."
+    },
+    "linkedin-post-writer": {
+      "rename": "linkedin-post-drafter",
+      "title": "Post Drafter",
+      "description": "Write a publish-ready LinkedIn post from a raw idea : pick a format (story, opinion, listicle, contrarian, experience recap), write hook, body, and CTA, and return three variants to choose from. Use whenever the user has a topic but no draft. With the Taplio MCP server connected it reads the user's voice settings and proven angles from high-performing posts on the topic, then saves the chosen variant as a Taplio draft ; without it, it returns the final text to copy.",
+      "fallback": "write the three variants from the idea and anything the user shares about their voice (a few past posts help), without the inspiration research, and finish with the final text in the editable block instead of saving a draft."
+    },
+    "linkedin-content-calendar-planner": {
+      "description": "Plan 4 weeks of LinkedIn posts tuned to the user's pillars, cadence, and audience : a day-by-day grid with topic, format, hook angle, and CTA, then a full post for every slot. Use when the user wants a plan for the next month instead of improvising. With the Taplio MCP server connected it folds in existing drafts and recent posts, saves every post as a Taplio draft, and schedules each one only after the user approves it ; without it, it returns the plan and the posts as text.",
+      "fallback": "build the grid from what the user tells you (pillars, cadence, ideas, posts already planned), write the posts, and deliver the calendar and the posts as text they can copy, with no drafts and no scheduling."
+    },
+    "linkedin-comment-reply-manager": {
+      "description": "Clear the comments waiting under the user's own LinkedIn posts : triage each one (question, pushback, lead signal, praise, spam), draft a reply in the user's voice, and schedule the approved replies to post under their name. Use when the user says reply to my comments, what is waiting under my posts, or wants to keep a thread going after publishing. With the Taplio MCP server connected it reads the unanswered comments and schedules replies after the user's go ; without it, it drafts replies to comments the user pastes.",
+      "fallback": "ask the user to paste the comments to answer (commenter, headline if visible, comment text, which post), triage them, and draft the replies with the same rules. The user posts them on LinkedIn themselves."
+    },
+    "linkedin-comment-opportunity-finder": {
+      "description": "Find the LinkedIn posts the user should comment on today to earn visibility, scored on recency, audience overlap, engagement velocity, and topic match, with the right comment angle for each. Use when the user wants to grow through engagement instead of, or on top of, posting. With the Taplio MCP server connected it pulls live candidates from Taplio's personalized selection, curated creator feeds, or a keyword search, and can draft and schedule the comments after the user's go ; without it, it ranks posts the user pastes.",
+      "fallback": "ask the user to paste the posts they are considering (author, text, age, rough counts), score them with the same grid, and draft the comments for them to post themselves."
+    }
+  }
+}
